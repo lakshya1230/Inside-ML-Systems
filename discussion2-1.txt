@@ -1,0 +1,21 @@
+
+Let me define Speed-Up = Average MPI Operation  Time / Average My Operation Time
+
+When running the implementations with 8 processors on a MAC, I observed a speedup ranging from 1.5x to 3.5x for AllReduce and 1.2x to 2x for All-to-All. In some runs, the speedup varied between 0.8x and 1.2x for both operations. 
+
+Since the number of processors is relatively small (2-8), I believe the overhead from communication setup and network latency outweighs the actual data transfer time in the built-in MPI implementation. This is why my custom implementation performs better for smaller inputs. However, as the number of processors increases, the cost of data transfer will become more significant, and MPI will outperform custom implementation for larger inputs.
+
+
+Processors = 8
+
+	     Latency-MPI	Latency-My	SpeedUp
+All-Reduce   1.091 		0.404		2.7
+All-Reduce   1.325		0.538.          2.46 
+All-Reduce   1.161		0.694.          1.67
+
+	     Latency-MPI	Latency-My	SpeedUp
+All-to-All   0.724 		0.516		1.4
+All-to-All   1.213		0.583           2.08
+All-to-All   0.696		0.650           1.07
+
+Note : The implementations for All-Reduce and All-to-All are ran on MAC-PRO-M3 processor.
