@@ -66,7 +66,7 @@ flowchart LR
 
 ---
 
-## 🧩 What You Build
+## 🧩 What I Build
 
 - **Fused kernel** in a GPU kernel DSL (matrix multiply + add + activation) with shared/register tiling and masked I/O.
 - **Lightweight collectives** on a message-passing runtime: custom *global-sum* and *peer-exchange* alongside the built-ins.
@@ -74,7 +74,7 @@ flowchart LR
 
 ---
 
-## 📂 Suggested Layout
+## 📂 Layout
 
 ```
 project/
